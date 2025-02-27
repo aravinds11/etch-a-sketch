@@ -2,6 +2,13 @@ const gridContainer = document.getElementById('grid');
 const resetButton = document.getElementById('resetButton');
 let gridSize = 16; 
 
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
 function createGrid(size) {
     gridContainer.innerHTML = '';
 
@@ -13,7 +20,7 @@ function createGrid(size) {
         div.style.height = `${squareSize}px`;
 
         div.addEventListener('mouseover', () => {
-            div.style.backgroundColor = 'black';
+            div.style.backgroundColor = getRandomColor();
         });
 
         gridContainer.appendChild(div);
